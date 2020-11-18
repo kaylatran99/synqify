@@ -5,7 +5,7 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  Map<int, Color> color =
+  Map<int, Color> blue =
   {
     50:Color.fromRGBO(144, 173, 198, .1),
     100:Color.fromRGBO(144, 173, 198, .2),
@@ -18,15 +18,16 @@ class MyApp extends StatelessWidget {
     800:Color.fromRGBO(144, 173, 198, .9),
     900:Color.fromRGBO(144, 173, 198, 1),
   };
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'synqify',
       theme: ThemeData(
-        primarySwatch: MaterialColor(0xFF90ADC6, color),
+        scaffoldBackgroundColor: MaterialColor(0xFF90ADC6, blue),
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: MyHomePage(title: 'synqify home'),
+      home: MyHomePage(title: 'synqify'),
     );
   }
 }
@@ -41,38 +42,22 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
+              widget.title,
+              style: TextStyle(
+                  color: Color(0xFFFAD02C),
+                  fontSize: 48,
+              ),
             ),
           ],
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
       ),
     );
   }
